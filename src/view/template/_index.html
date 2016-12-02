@@ -1,0 +1,129 @@
+<style lang="sass">
+	header {
+		width: 100%;
+		overflow: hidden;
+		height: 0.86rem;
+		background-color: rgb(6, 193, 174);
+		border-bottom: 1px solid rgb(230, 230, 230);
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		flex-wrap: nowrap;
+	}
+	
+	.address {
+		width: 1.14rem;
+		height: 100%;
+		text-align: center;
+		font-size: 0.28rem;
+		line-height: 0.86rem;
+		color: #fff;
+	}
+	
+	.input {
+		width: 3.74rem;
+		height: 0.54rem;
+		font-size: 0.26rem;
+		color: #acacac;
+		border-radius: 0.27rem;
+		background-color: #fff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	
+	.input>input {
+		height: 0.3rem;
+		color: #acacac;
+		font-size: 0.24rem;
+		width: 2.15rem;
+		border: none;
+		outline: none;
+	}
+	
+	
+	.warn,
+	.barcode {
+		width: 0.76rem;
+		height: 100%;
+		line-height: 0.86rem;
+		text-align: center;
+		font-size: 0.34rem;
+		color: #fff;
+	}
+	
+	.swiper-container {
+		width: 100%;
+		height: 2.5rem;
+	}
+	
+	.swiper-container img {
+		width: 100%;
+		height: 100%;
+	}
+	
+section.con{
+	width: 100%;overflow: hidden;position: relative;height: 60%;
+}
+section.con>.padding{
+	padding-top: 0;
+}	
+.message{
+	width: 100%;overflow: hidden;
+}
+.message>ul{
+	width: 100%;
+}
+.message>ul>li{
+	width: 100%;height: 2rem;border-bottom: 1px solid #acacac;
+}
+.message>ul>li>a{
+	display: flex;justify-content: space-around;align-items: center;
+}
+.message>ul>li>a>img{
+	width: 2rem;height: 2rem;
+}
+.message>ul>li>a>span{
+	flex: 1;font-size: 0.30rem;height: 2rem;line-height: 2rem;display: block;
+}
+.item{
+	border-style: none;
+}
+</style>
+
+<header>
+	<div class="address">北京</div>
+	<div class="input">
+		<img src="view/assets/img/search.png" />
+		<input type="text" onTouchEnd="window.location.href='#/search'"/>
+	</div>
+	<div class="barcode iconfont icon-fenlei"></div>
+	<div class="warn iconfont icon-xiao46"></div>
+</header>
+
+<div class="swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide" ng-repeat="item in banner">
+			<img ng-src={{item}}>
+		</div>
+	</div>
+</div>
+
+<section class="con">
+	<ion-content class="padding">
+	<ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+	<div class="message">
+		<ul>
+			<li class="brand" ng-repeat="item in items | orderBy:'-goodsId'">
+				<a href="#/detail/{{item.goodsId}}">
+					<img ng-src={{item.goodsImg}} />
+					<span>{{item.goodsName}}</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
+	<ion-infinite-scroll pulling-text="上拉加载" ng-if="hasdata" on-infinite="loadmore()" distance="1%"></ion-infinite-scroll>
+	<div class="item" ng-if="!hasdata" align="center"><p>没有更多了~</p></div>
+</ion-content>
+</section>

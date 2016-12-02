@@ -1,0 +1,25 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true,
+        "commonjs": true
+    },
+    "extends": "eslint:recommended",
+    "installedESLint": true,
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true,
+            "arrowFunctions": true,
+            "classes": true,
+            "modules": true,
+            "defaultParams": true
+        },
+        "sourceType": "module"
+    },
+    "parser": "babel-eslint",
+    "rules": {
+        
+    }
+}

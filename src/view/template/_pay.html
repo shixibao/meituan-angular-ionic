@@ -1,0 +1,43 @@
+
+<style>
+	.pay{
+		width: 100%;height: 100%;background-color: #FAFAFA;overflow: hidden;
+	}
+	
+</style>
+
+<!--
+	
+	API 服务端提供：
+	参数具体描述
+	http://127.0.0.1:3000/pay
+	post
+	参数？cardId ,password,密码， 金额money
+	
+	method:表示请求类型
+	action:表示请求地址
+	multiple 文件上传规定
+	
+	form 传递cardId=value
+	
+-->
+
+<div class="pay">
+	<form method="post" action="http://127.0.0.1:3000/pay">
+		<div class="box">
+			<span>支付账户：</span>
+			<input name="cardId"/>
+		</div>
+		<div class="box">
+			<span>密码：</span>
+			<input name="password"/>
+		</div>
+		<div class="box">
+			<span>金额：</span>
+			<input name="money"/>
+		</div>
+		<div class="payment">
+			<button type="submit">确认付款</button>
+		</div>
+	</form>
+</div>

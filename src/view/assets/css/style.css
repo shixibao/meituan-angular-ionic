@@ -1,0 +1,33 @@
+*{margin: 0;padding: 0}
+
+footer{
+	width:100%;overflow: hidden;background-color: rgb(245,245,245);
+	height: 0.93rem;border: 1px solid rgb(230,230,230);
+	position: fixed;bottom: 0;left: 0;display: flex;
+}
+
+/*footer>div{
+	flex:1;height: 100%;
+	text-align: center;display: flex;flex-direction:column;
+	justify-content:center;align-items:center;
+	font-size: 0.2rem;
+}*/
+
+footer>a{
+	flex:1;height: 100%;
+	text-align: center;display: flex;flex-direction:column;
+	justify-content:center;align-items:center;
+	font-size: 0.2rem;
+}
+
+footer>a>i.iconfont{
+	font-size: 0.4rem;margin-bottom: 0.05rem;
+}
+
+footer>a>p{
+	font-size: 0.2rem;
+}
+
+
+
+

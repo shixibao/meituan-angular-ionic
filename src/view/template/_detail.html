@@ -1,0 +1,113 @@
+<style>
+	.cxt {
+		width: 100%;
+		min-height: 400px;
+		background-color: #acacac;
+	}
+	
+	.detail-img {
+		width: 100%;
+		height: 3.9rem;
+		overflow: hidden;
+		display: flex;
+	}
+	
+	.detail-img>img {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.detail-info {
+		width: 100%;
+		height: 1.1rem;
+		background-color: #fff;
+		border-bottom: 1px solid #acacac;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+	
+	.detail-info>span {
+		font-size: 0.32rem;
+		color: rgb(6, 193, 174);
+	}
+	
+	.detail-info>button {
+		font-size: 0.32rem;
+		border: none;
+		outline: none;
+		background-color: rgb(255, 153, 0);
+		width: 1.6rem;
+		height: 0.6rem;
+		border-radius: 0.2rem;
+		color: #fff;
+	}
+	
+	.detail-location {
+		width: 100%;
+		overflow: hidden;
+		height: 1.1rem;
+		background-color: #fff;
+		border-bottom: 1px solid #acacac;
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+	}
+	
+	.detail-location>span {
+		font-size: 0.32rem;
+	}
+	
+	.map {
+		width: 100%;
+		height: 100%;
+		background-color: rgb(230, 230, 230);
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 99;
+	}
+	
+	.toolbar {
+		width: 100%;
+		height: 0.8rem;
+		background-color: #fafafa;
+		overflow: hidden;
+		line-height: 0.8rem;
+	}
+	
+	.toolbar>button {
+		width: 1.2rem;
+		height: 0.4rem;
+		font-size: 0.24rem;
+		text-align: center;
+		line-height: 0.4rem;
+		color: #ACACAC;
+		border: none;
+		outline: none;
+		background-color: #fafafa;
+	}
+</style>
+
+<div>
+	<div class="detail-img">
+		<img ng-src={{result.goodsImg}} />
+	</div>
+	<div class="detail-info">
+		<span>价格：{{result.price}}</span><button><a href="#/pay">立即抢购</a></button>
+	</div>
+	<div class="detail-location">
+		<span ng-click="getLocation($event);" title={{result.location}}>当前位置：{{result.location}}</span>
+	</div>
+	<div ng-show="isOpenMap" class="map">
+		<div class="toolbar">
+			<button ng-click="closeMap()">关闭</button>
+		</div>
+		<div class="map_cxt" id="map">
+			<div id="container"></div>
+			<div id="panel"></div>
+		</div>
+	</div>
+</div>
+<script>
+</script>
